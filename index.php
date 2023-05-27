@@ -1,9 +1,6 @@
 <?php
 require('autoload.php');
 
-$poke = new PokemonDao();
-
-var_dump($poke->fetch_all());
 
 ?>
 

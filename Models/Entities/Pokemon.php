@@ -5,6 +5,7 @@ class Pokemon extends Entity
     protected $id;
     protected $name;
     protected $url;
+    protected static $dao = "PokemonDao";
 
 
     public function __construct($id, $name, $url)
