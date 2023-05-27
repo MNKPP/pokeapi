@@ -1,9 +1,10 @@
 <?php
 require('autoload.php');
 
-$pokemon = new Pokemon(1, "Pikachu", "fausse url");
+$poke = new PokemonDao();
 
-echo $pokemon->__toString();
+var_dump($poke->fetch_all());
+
 ?>
 
 <!DOCTYPE html>

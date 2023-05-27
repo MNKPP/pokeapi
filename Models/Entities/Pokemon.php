@@ -2,9 +2,10 @@
 
 class Pokemon extends Entity
 {
-    public $id;
-    public $name;
-    public $url;
+    protected $id;
+    protected $name;
+    protected $url;
+
 
     public function __construct($id, $name, $url)
     {
