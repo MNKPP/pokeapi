@@ -1,7 +1,6 @@
 <?php
 require('autoload.php');
 
-
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +15,42 @@ require('autoload.php');
 </head>
 
 <body>
+    <div id="poke-info">
+        <h2 id="name"></h2>
+        <img id="pokemon" src="">
+    </div>
 
-    <script src="index.js"></script>
+    <script>
+        let pokemonData;
+        $.get("https://pokeapi.co/api/v2/pokemon/94")
+            .done(function(data) {
+                pokemonData = data;
+                $('#name').text(data.name);
+                $('#pokemon').attr('src', data.sprites.front_default);
+
+                $("#poke-info").append(
+                    $(document.createElement("button")).prop({
+                        href: "Controllers/favoriteProcess.php",
+                        innerHTML: "Ajouter aux favoris"
+                    })
+                )
+
+                $(document).on("click", "button", function() {
+                    $.post("Controllers/favoriteProcess.php", {
+                            data: pokemonData
+                        })
+                        .done(function() {
+                            console.log("success")
+                        })
+                        .fail(function(error) {
+                            console.log(error);
+                        })
+                })
+            })
+            .fail(function(error) {
+                console.log(error)
+            })
+    </script>
 </body>
 
 </html>
