@@ -1,5 +1,8 @@
 <?php
 require "../autoload.php";
+
+$pokemonData = Pokemon::all();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +16,12 @@ require "../autoload.php";
 
 <body>
     <h1>My favorites</h1>
+    <?php foreach ($pokemonData as $value) : ?>
+        <div id="poke-info">
+            <h2 id="name"><?= $value->name ?></h2>
+            <img id="pokemon-img" src="<?= $value->url ?>">
+        </div>
+    <?php endforeach; ?>
 </body>
 
 </html>
