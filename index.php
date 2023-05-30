@@ -61,7 +61,7 @@ $pokemon->save();
 
         $(document).on("click", ".addFavorite", function() {
             $.post("Controllers/favoriteProcess.php", {
-                    data: pokemonData
+                    data: JSON.stringify(pokemonData) // pokemonData
                 })
                 .done(function() {
                     console.log("success");
