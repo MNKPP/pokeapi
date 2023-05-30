@@ -18,7 +18,15 @@ $pokemon->save();
 </head>
 
 <body>
-    <h1>Pokédex</h1>
+    <nav>
+        <h1>Pokédex</h1>
+        <ul>
+            <a href="Views/favoriteView.php">
+                <li>Favorites</li>
+            </a>
+        </ul>
+    </nav>
+
     <form>
         <input type="text" id="pokemon" name="pokemon">
         <button id="findPokemon">Rechercher</button>
