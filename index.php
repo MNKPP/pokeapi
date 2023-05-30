@@ -1,7 +1,7 @@
 <?php
 require "autoload.php";
 
-// $pokemon = new Pokemon("1", "3", "4");
+$pokemon = new Pokemon("1", "3", "4");
 
 $pokemon->save();
 ?>
@@ -43,7 +43,7 @@ $pokemon->save();
                     $('#pokemon-img').attr('src', data.sprites.front_default);
 
                     if ($(".addFavorite")) {
-                        $(".git add . addFavorite").remove();
+                        $(".addFavorite").remove();
                     }
 
                     $("#poke-info").append(
@@ -59,7 +59,7 @@ $pokemon->save();
                 });
         });
 
-        $(document).on("click", "button", function() {
+        $(document).on("click", ".addFavorite", function() {
             $.post("Controllers/favoriteProcess.php", {
                     data: pokemonData
                 })
