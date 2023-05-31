@@ -27,7 +27,7 @@
                 ]);
                 $result = $statement->fetch(PDO::FETCH_ASSOC);
                 if ($result) {
-                    $this->create($result);
+                    return $this->create($result);
                 }
             } catch (PDOException $exception) {
                 var_dump($exception);

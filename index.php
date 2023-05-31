@@ -1,9 +1,5 @@
 <?php
 require "autoload.php";
-
-$pokemon = new Pokemon("1", "3", "4");
-
-$pokemon->save();
 ?>
 
 <!DOCTYPE html>
