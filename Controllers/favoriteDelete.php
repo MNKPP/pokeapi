@@ -3,8 +3,10 @@ require "../autoload.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $id = $_POST['id'] ?? null;
+    $id = $_POST['id'];
 
     $pokemon = Pokemon::find($id);
-    $pokemon->delete();
+    if ($pokemon) {
+        $pokemon->delete();
+    }
 }

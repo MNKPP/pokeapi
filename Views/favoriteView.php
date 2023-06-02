@@ -18,45 +18,39 @@ $pokemonData = Pokemon::all();
 
 <body>
     <h1>My favorites</h1>
-    <?php foreach ($pokemonData as $value) : ?>
-        <div class="test">
-            <div id="poke-info">
-                <h2 id="name"><?= $value->name ?></h2>
-                <img id="pokemon-img" src="<?= $value->url ?>">
-                <button class="deleteFavorite" data-id="<?= $value->id ?>">X</button>
+    <?php if (!empty($pokemonData)) : ?>
+        <?php foreach ($pokemonData as $value) : ?>
+            <div class="test">
+                <div id="poke-info">
+                    <h2 id="name"><?= $value->name ?></h2>
+                    <img id="pokemon-img" src="<?= $value->url ?>">
+                    <button class="deleteFavorite" data-id="<?= $value->id ?>">X</button>
+                </div>
             </div>
-        </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </body>
 <script>
     $(document).ready(function() {
         $(".deleteFavorite").click(function() {
+            var pokemonContainer = $(this).closest("#poke-info");
             var id = $(this).data("id");
 
-            $.post("../Controllers/favoriteDelete.php", {
+            $.ajax({
+                url: "../Controllers/favoriteDelete.php ",
+                type: "POST",
+                data: {
                     id: id
-                })
-                .done(function() {
-                    console.log("success");
-                })
-                .fail(function(error) {
-                    console.log(error);
-                });
+                },
+                success: function(response) {
+                    pokemonContainer.remove();
+                },
+                error: function() {
+                    console.log("La suppression du Pokémon a échoué !");
+                }
+            });
         });
     });
-    // $("document").on("click", ".deleteFavorite", function() {
-    //     var id = $(this).data("id");
-
-    //     $.post("../Controllers/favoriteDelete.php", {
-    //             id: id
-    //         })
-    //         .done(function(response) {
-    //             console.log(response);
-    //         })
-    //         .fail(function(error) {
-    //             console.log(error);
-    //         })
-    // });
 </script>
 
 </html>
