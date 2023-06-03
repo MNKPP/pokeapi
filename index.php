@@ -10,18 +10,20 @@ require "autoload.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="Styles/styles.css">
     <title>Document</title>
 </head>
 
 <body>
     <nav>
-        <h1>Pokédex</h1>
+        <img src="Img/Pokemon-Logo.png" alt="pokemon logo">
         <ul>
             <a href="Views/favoriteView.php">
                 <li>Favorites</li>
             </a>
         </ul>
     </nav>
+
 
     <form>
         <input type="text" id="pokemon" name="pokemon">

@@ -13,10 +13,19 @@ $pokemonData = Pokemon::all();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="../Styles/styles.css">
     <title>Favorite</title>
 </head>
 
 <body>
+    <nav>
+        <img src="../Img/Pokemon-Logo.png" alt="pokemon logo">
+        <ul>
+            <a href="../index.php">
+                <li>Home</li>
+            </a>
+        </ul>
+    </nav>
     <h1>My favorites</h1>
     <?php if (!empty($pokemonData)) : ?>
         <?php foreach ($pokemonData as $value) : ?>
